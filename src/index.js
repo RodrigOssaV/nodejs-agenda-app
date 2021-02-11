@@ -5,7 +5,7 @@ const path = require('path');
 const passport = require('passport');
 const session = require('express-session');
 const MYSQLStore = require('express-session-mysql');
-
+const flash = require('connect-flash');
 
 // initialitation
 const app = express();
@@ -36,6 +36,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 
 // routes
@@ -43,6 +44,12 @@ app.use(require('./routes/index.route'));
 app.use(require('./routes/auth.route'));
 
 // global variables
+app.use((req, res, next) => {
+    app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
+    app.locals.user =req.user;
+    next();
+});
 
 // starting server
 app.listen(app.get('port'), () => {
