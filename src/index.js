@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 
 // initialitation
 const app = express();
@@ -7,8 +8,12 @@ const app = express();
 app.set('port', process.env.PORT || 8000);
 
 // middlewares
+app.use(morgan());
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 
 // routes
+app.use(require('./routes/index.route'));
 
 // global variables
 
