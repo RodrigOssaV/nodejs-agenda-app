@@ -49,6 +49,7 @@ app.use((req, res, next) => {
 // routes
 app.use(require('./routes/index.route'));
 app.use(require('./routes/auth.route'));
+app.use('/dashboard', (require('./routes/dashboard.route')));
 
 // starting server
 app.listen(app.get('port'), () => {
