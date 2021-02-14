@@ -1,7 +1,7 @@
 <nav class="breadcrumb ml-5" aria-label="breadcrumbs">
     <ul>
         <li><a href="/dashboard">Dashboard</a></li>
-        <li class="is-active"><a href="/notes" aria-current="page">Notes</a></li>
+        <li class="is-active"><a href="" aria-current="page">All Notes</a></li>
     </ul>
 </nav>
 
@@ -9,26 +9,26 @@
     {{#each rows}}
     <div class="column is-narrow">
         <div class="card">
-        <header class="card-header">
-            <p class="card-header-title is-centered">
-                {{ title }}
-            </p>
-        </header>
-        <div class="card-content">
-            <div class="content">
-                {{ description }}
+            <header class="card-header">
+                <p class="card-header-title is-centered">
+                    {{ title }}
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    {{ description }}
+                </div>
             </div>
+            <footer class="card-footer">
+                <a href="/notes/edit/{{ id }}" class="card-footer-item">Edit</a>
+                <a href="/notes/delete/{{ id }}" class="card-footer-item">Delete</a>
+            </footer>
         </div>
-        <footer class="card-footer">
-            <a href="/notes/edit/{{ id }}" class="card-footer-item">Edit</a>
-            <a href="/notes/delete/{{ id }}" class="card-footer-item">Delete</a>
-        </footer>
-    </div>
     {{else}}
         <div class="block has-text-centered">
             <p>There are not Notes saved yet.</p>
             <p><a href="/notes/add">Create one!</a></p>
         </div>
-    {{/each}}
     </div>
+    {{/each}}
 </div>

@@ -1,0 +1,33 @@
+<nav class="breadcrumb ml-5" aria-label="breadcrumbs">
+    <ul>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li class="is-active"><a href="" aria-current="page">All Contact</a></li>
+    </ul>
+</nav>
+
+<div class="columns is-mobile is-multiline is-centered">
+    {{#each rows}}
+    <div class="column is-narrow">
+        <div class="card">
+            <div class="card-content">
+                <div class="content">
+                    <p><strong>Name:</strong> {{ name }}</p>
+                    <p><strong>Lastname:</strong> {{ lastname }} </p>
+                    <p><strong>Address:</strong> {{  address }}</p>
+                    <p><strong>Phone:</strong> {{ phone }}</p>
+                    <p><strong>Email:</strong> {{ mail }}</p>
+                </div>
+            </div>
+            <footer class="card-footer">
+                <a href="/agenda/edit/{{ id }}" class="card-footer-item">Edit</a>
+                <a href="/agenda/delete/{{ id }}" class="card-footer-item">Delete</a>
+            </footer>
+        </div>
+    {{else}}
+        <div class="block has-text-centered">
+            <p>There are not Contact saved yet.</p>
+            <p><a href="/agenda/add">Create one!</a></p>
+        </div>
+    </div>
+    {{/each}}
+</div>
