@@ -51,6 +51,7 @@ app.use(require('./routes/auth.route'));
 app.use(require('./routes/index.route'));
 app.use('/notes', (require('./routes/note.route')));
 app.use('/dashboard', (require('./routes/dashboard.route')));
+app.use('/agenda', (require('./routes/agenda.route')));
 
 
 // starting server
